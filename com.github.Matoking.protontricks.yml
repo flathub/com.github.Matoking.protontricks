@@ -1,7 +1,7 @@
 ---
 id: com.github.Matoking.protontricks
 runtime: org.freedesktop.Platform
-runtime-version: "20.08"
+runtime-version: "21.08"
 sdk: org.freedesktop.Sdk
 appstream-compose: false
 command: protontricks
@@ -45,17 +45,17 @@ finish-args:
 add-extensions:
   org.freedesktop.Platform.Compat.i386:
     directory: lib/i386-linux-gnu
-    version: '20.08'
+    version: '21.08'
 
   org.freedesktop.Platform.Compat.i386.Debug:
     directory: lib/debug/lib/i386-linux-gnu
-    version: '20.08'
+    version: '21.08'
     no-autodownload: true
 
   org.freedesktop.Platform.GL32:
     directory: lib/i386-linux-gnu/GL
     version: '1.4'
-    versions: 20.08;1.4
+    versions: 21.08;1.4
     subdirectories: true
     no-autodownload: true
     autodelete: false
@@ -147,7 +147,7 @@ modules:
               strip: true
             make-args:
               - all2
-              - OPTFLAGS=-O2 -g
+              - OPTFLAGS=-O2 -g -std=gnu++14
               - DEST_HOME=$(FLATPAK_DEST)
               - DEST_BIN=$(FLATPAK_DEST)/bin
               - DEST_SHARE=$(FLATPAK_DEST)/lib/p7zip
