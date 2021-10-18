@@ -86,14 +86,6 @@ modules:
 
   - name: protontricks
     buildsystem: simple
-    build-options:
-      env:
-        # Override setuptools-scm version detection logic.
-        # This is necessary because the patch to implement the required
-        # functionality for stand-alone Flatpak isn't part of a tagged release
-        # yet.
-        # TODO: Remove this for next version
-        SETUPTOOLS_SCM_PRETEND_VERSION: "1.6.0"
     build-commands:
       - pip3 install --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} .
       # This manifest ships '.desktop' files properly, so no need to install
@@ -106,11 +98,8 @@ modules:
     sources:
       - type: git
         url: "https://github.com/Matoking/protontricks.git"
-        # Fetch specific commit consisting of 1.6.0 and additional changes
-        # to enable the standalone Flatpak.
-        # These will be included in the next upstream release.
-        #tag: "1.6.0"
-        commit: 3a57bc6bbfb039abd7fe623b25a29c277e064f9c
+        tag: "1.6.1"
+        commit: c5255fe3efd5c1f21a766b5d5b5a792136d0f481
 
     modules:
 
