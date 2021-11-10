@@ -56,5 +56,5 @@ and the apps installed there. In order to access other Steam library locations,
 you can use
 [Flatseal](https://flathub.org/apps/details/com.github.tchx84.Flatseal) or
 [flatpak override](https://docs.flatpak.org/en/latest/flatpak-command-reference.html?highlight=override#flatpak-override)
-command (eg. `flatpak override --filesystem=<PATH>`) to grant access to other
+command (eg. `flatpak override --user --filesystem=<PATH> com.github.Matoking.protontricks`) to grant access to other
 installation locations.
