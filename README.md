@@ -41,6 +41,20 @@ For the rest of the usage options, [see the README](https://github.com/Matoking/
 
 ## Desktop
 
-You can launch the Protontricks GUI using the **Protontricks** app shortcut, and launch external EXEs using **Protontricks Launcher** when opening a Windows executable in a file manager.
+You can launch the Protontricks GUI using the **Protontricks** app shortcut,
+and launch external EXEs using **Protontricks Launcher** when opening a Windows
+executable in a file manager.
 
-Due to the Flatpak security model, external EXE files have to be self-contained; if the EXE relies on other files in the same directory, Protontricks won't be able to access them.
+Due to the Flatpak security model, external EXE files have to be
+self-contained; if the EXE relies on other files in the same directory,
+Protontricks won't be able to access them.
+
+# File system access
+
+By default, Protontricks only has access to the Steam installation directory
+and the apps installed there. In order to access other Steam library locations,
+you can use
+[Flatseal](https://flathub.org/apps/details/com.github.tchx84.Flatseal) or
+[flatpak override](https://docs.flatpak.org/en/latest/flatpak-command-reference.html?highlight=override#flatpak-override)
+command (eg. `flatpak override --filesystem=<PATH>`) to grant access to other
+installation locations.
