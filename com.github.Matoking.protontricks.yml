@@ -98,8 +98,12 @@ modules:
     sources:
       - type: git
         url: "https://github.com/Matoking/protontricks.git"
-        tag: "1.6.1"
-        commit: c5255fe3efd5c1f21a766b5d5b5a792136d0f481
+        tag: "1.6.2"
+        commit: 3a970749b7f8af7878ce8be1fc917302a71cb9f4
+      - type: patch
+        paths:
+          # 'icon' field in AppData fails AppStream validation. Remove it.
+          - patches/protontricks/remove-stock-icon.patch
 
     modules:
 
