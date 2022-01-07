@@ -3,7 +3,6 @@ id: com.github.Matoking.protontricks
 runtime: org.freedesktop.Platform
 runtime-version: "21.08"
 sdk: org.freedesktop.Sdk
-appstream-compose: false
 command: protontricks
 finish-args:
   # Copy some args from Steam Flatpak to make the environment similar
@@ -91,19 +90,24 @@ modules:
       # This manifest ships '.desktop' files properly, so no need to install
       # 'protontricks-desktop-install'
       - rm ${FLATPAK_DEST}/bin/protontricks-desktop-install
+      - install -Dm644 icon_scalable.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
     post-install:
       - install -Dm644 -t ${FLATPAK_DEST}/share/metainfo data/${FLATPAK_ID}.metainfo.xml
-      - appstream-compose --basename=${FLATPAK_ID} --prefix=${FLATPAK_DEST} --origin=flatpak ${FLATPAK_ID}
       - rename protontricks ${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/protontricks*.desktop
     sources:
       - type: git
         url: "https://github.com/Matoking/protontricks.git"
-        tag: "1.6.2"
-        commit: 3a970749b7f8af7878ce8be1fc917302a71cb9f4
+        commit: 46ae4e37a499b09bb29add70be2c39f97e76c08f
       - type: patch
         paths:
-          # 'icon' field in AppData fails AppStream validation. Remove it.
-          - patches/protontricks/remove-stock-icon.patch
+          # Flathub does not support stock icons. Use a vendored icon from the
+          # KDE Breeze icon theme instead.
+          - patches/protontricks/replace-stock-icon.patch
+      - type: patch
+        paths:
+          - patches/protontricks/rename-launchable.patch
+      - type: file
+        path: "icon_scalable.svg"
 
     modules:
 
