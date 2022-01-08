@@ -1,0 +1,47 @@
+diff --git a/data/com.github.Matoking.protontricks.metainfo.xml b/data/com.github.Matoking.protontricks.metainfo.xml
+index 28e49ae..8b70ce5 100644
+--- a/data/com.github.Matoking.protontricks.metainfo.xml
++++ b/data/com.github.Matoking.protontricks.metainfo.xml
+@@ -5,7 +5,6 @@
+   <summary>A simple wrapper that does winetricks things for Proton enabled games</summary>
+   <summary xml:lang="pt_BR">Um invólucro simples que executa truques de winetricks para jogos habilitados para usar o Proton</summary>
+   <summary xml:lang="es">Un contenedor simple que realiza trucos de winetricks para juegos habilitados para usar Proton</summary>
+-  <icon type="stock">wine</icon>
+   <provides>
+     <binary>protontricks</binary>
+     <binary>protontricks-launch</binary>
+diff --git a/src/protontricks/data/protontricks-launch.desktop b/src/protontricks/data/protontricks-launch.desktop
+index 56112d7..66cac55 100644
+--- a/src/protontricks/data/protontricks-launch.desktop
++++ b/src/protontricks/data/protontricks-launch.desktop
+@@ -5,5 +5,5 @@ Type=Application
+ Terminal=false
+ NoDisplay=true
+ Categories=Utility
+-Icon=wine
++Icon=com.github.Matoking.protontricks
+ MimeType=application/x-ms-dos-executable;application/x-msi;application/x-ms-shortcut;
+diff --git a/src/protontricks/data/protontricks.desktop b/src/protontricks/data/protontricks.desktop
+index ec0e964..bfd53c7 100644
+--- a/src/protontricks/data/protontricks.desktop
++++ b/src/protontricks/data/protontricks.desktop
+@@ -5,5 +5,5 @@ Comment=A simple wrapper that does winetricks things for Proton enabled games
+ Type=Application
+ Terminal=false
+ Categories=Utility;
+-Icon=wine
++Icon=com.github.Matoking.protontricks
+ Keywords=Steam;Proton;Wine;Winetricks;
+diff --git a/src/protontricks/gui.py b/src/protontricks/gui.py
+index b78650d..2c8c179 100644
+--- a/src/protontricks/gui.py
++++ b/src/protontricks/gui.py
+@@ -79,7 +79,7 @@ def select_steam_app_with_gui(steam_apps, steam_path, title=None):
+     def _get_yad_args():
+         return [
+             "yad", "--list", "--no-headers", "--center",
+-            "--window-icon", "wine",
++            "--window-icon", "/app/share/icons/hicolor/scalable/apps/com.github.Matoking.protontricks.svg",
+             # Disabling markup means we won't have to escape special characters
+             "--no-markup",
+             "--search-column", "2"
