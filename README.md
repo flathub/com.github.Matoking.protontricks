@@ -1,7 +1,7 @@
 Protontricks for Flatpak
 ========================
 
-[Protontricks](https://github.com/Matoking/protontricks) compatible with the Flatpak version of Steam.
+[Protontricks](https://github.com/Matoking/protontricks) packaged for Flatpak. Compatible with both native and Flatpak Steam installations.
 
 # Installation
 
@@ -13,28 +13,44 @@ Install Protontricks for Flatpak using the following command:
 flatpak install flathub com.github.Matoking.protontricks
 ```
 
-Add an alias that allows you to call Protontricks using the `protontricks-flat` alias:
+Add an alias that allows you to call Protontricks using the `protontricks` alias:
 
 ```sh
-echo "alias protontricks-flat='flatpak run com.github.Matoking.protontricks'" >> ~/.bashrc
+echo "alias protontricks='flatpak run com.github.Matoking.protontricks'" >> ~/.bashrc
 ```
 
 **You will need to restart any terminal emulators you have open for the alias to take effect.**
+
+# Configuration
+
+By default, Protontricks only has access to the Steam installation directory.
+**You will need to add filesystem permissions for additional Steam library
+locations, and other directories when running external EXEs.**
+
+In order to grant access to other directories, you can use the
+[Flatseal](https://flathub.org/apps/details/com.github.tchx84.Flatseal) graphical utility or
+the [flatpak
+override](https://docs.flatpak.org/en/latest/flatpak-command-reference.html?highlight=override#flatpak-override)
+command (eg. `flatpak override --user --filesystem=<PATH> com.github.Matoking.protontricks`) to grant access to other directories.
+
+For example, to grant access to `/mnt/MySSD/SteamLibrary`, you can run the following command:
+
+```
+flatpak override --user --filesystem=/mnt/MySSD/SteamLibrary com.github.Matoking.protontricks
+```
 
 # Usage
 
 ## Command-line
 
-After you have installed Protontricks and added the alias, you can use Protontricks with the Flatpak version of Steam using the alias you configured:
+After you have installed Protontricks and added the alias, you can run Protontricks commands using the alias you configured:
 
 ```sh
-# Note that you need to call `protontricks-flat` instead of `protontricks`
-
 # Find your game's App ID by searching for it
-protontricks-flat -s <GAME NAME>
+protontricks -s <GAME NAME>
 
 # Run winetricks for the game
-protontricks-flat <APPID> <ACTIONS>
+protontricks <APPID> <ACTIONS>
 ```
 
 For the rest of the usage options, [see the README](https://github.com/Matoking/protontricks/blob/master/README.md) on the main Protontricks repository.
@@ -45,16 +61,6 @@ You can launch the Protontricks GUI using the **Protontricks** app shortcut,
 and launch external EXEs using **Protontricks Launcher** when opening a Windows
 executable in a file manager.
 
-Due to the Flatpak security model, external EXE files have to be
-self-contained; if the EXE relies on other files in the same directory,
-Protontricks won't be able to access them.
-
-# File system access
-
-By default, Protontricks only has access to the Steam installation directory
-and the apps installed there. In order to access other Steam library locations,
-you can use
-[Flatseal](https://flathub.org/apps/details/com.github.tchx84.Flatseal) or
-[flatpak override](https://docs.flatpak.org/en/latest/flatpak-command-reference.html?highlight=override#flatpak-override)
-command (eg. `flatpak override --user --filesystem=<PATH> com.github.Matoking.protontricks`) to grant access to other
-installation locations.
+Due to the Flatpak security model, you might need to add filesystem permissions
+as described in [Configuration](#Configuration). This is necessary when the Windows executable
+requires access to other files.
