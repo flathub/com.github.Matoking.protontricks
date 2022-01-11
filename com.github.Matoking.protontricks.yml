@@ -105,9 +105,8 @@ modules:
           # Flathub does not support stock icons. Use a vendored icon from the
           # KDE Breeze icon theme instead.
           - patches/protontricks/replace-stock-icon.patch
-      - type: patch
-        paths:
           - patches/protontricks/rename-launchable.patch
+          - patches/protontricks/amend-description.patch
       - type: file
         path: "icon_scalable.svg"
 

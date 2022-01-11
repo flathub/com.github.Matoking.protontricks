@@ -1,0 +1,14 @@
+diff --git a/data/com.github.Matoking.protontricks.metainfo.xml b/data/com.github.Matoking.protontricks.metainfo.xml
+index 5d49da2..3795a73 100644
+--- a/data/com.github.Matoking.protontricks.metainfo.xml
++++ b/data/com.github.Matoking.protontricks.metainfo.xml
+@@ -28,6 +28,9 @@
+     <p>This is a wrapper script that allows you to easily run Winetricks commands for Steam Play/Proton games among other common Wine features,
+        such as launching external Windows executables. This is often useful when a game requires closed-source runtime libraries or applications
+        that are not included with Proton.</p>
++    <!-- Flatpak specific instructions for Steam libraries -->
++    <p>Note: To access Steam libraries on another drives, you need to grant access to them:</p>
++    <p>flatpak override --user --filesystem=/path/to/other/Steam/Library com.github.Matoking.protontricks</p>
+   </description>
+   <url type="homepage">https://github.com/Matoking/protontricks</url>
+   <url type="help">https://github.com/Matoking/protontricks#readme</url>
