@@ -40,6 +40,7 @@ finish-args:
   # Protontricks-specific permissions to grant access to Steam installation
   - --filesystem=~/.var/app/com.valvesoftware.Steam
   - --filesystem=xdg-data/Steam
+  - --filesystem=~/.steam
 
 add-extensions:
   org.freedesktop.Platform.Compat.i386:
