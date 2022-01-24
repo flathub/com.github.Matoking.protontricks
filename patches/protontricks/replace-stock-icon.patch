@@ -10,10 +10,10 @@ index 28e49ae..8b70ce5 100644
    <provides>
      <binary>protontricks</binary>
      <binary>protontricks-launch</binary>
-diff --git a/src/protontricks/data/protontricks-launch.desktop b/src/protontricks/data/protontricks-launch.desktop
+diff --git a/src/protontricks/data/share/applications/protontricks-launch.desktop b/src/protontricks/data/share/applications/protontricks-launch.desktop
 index 56112d7..66cac55 100644
---- a/src/protontricks/data/protontricks-launch.desktop
-+++ b/src/protontricks/data/protontricks-launch.desktop
+--- a/src/protontricks/data/share/applications/protontricks-launch.desktop
++++ b/src/protontricks/data/share/applications/protontricks-launch.desktop
 @@ -5,5 +5,5 @@ Type=Application
  Terminal=false
  NoDisplay=true
@@ -21,10 +21,10 @@ index 56112d7..66cac55 100644
 -Icon=wine
 +Icon=com.github.Matoking.protontricks
  MimeType=application/x-ms-dos-executable;application/x-msi;application/x-ms-shortcut;
-diff --git a/src/protontricks/data/protontricks.desktop b/src/protontricks/data/protontricks.desktop
+diff --git a/src/protontricks/data/share/applications/protontricks.desktop b/src/protontricks/data/share/applications/protontricks.desktop
 index ec0e964..bfd53c7 100644
---- a/src/protontricks/data/protontricks.desktop
-+++ b/src/protontricks/data/protontricks.desktop
+--- a/src/protontricks/data/share/applications/protontricks.desktop
++++ b/src/protontricks/data/share/applications/protontricks.desktop
 @@ -5,5 +5,5 @@ Comment=A simple wrapper that does winetricks things for Proton enabled games
  Type=Application
  Terminal=false

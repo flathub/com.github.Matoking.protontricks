@@ -98,8 +98,7 @@ modules:
     sources:
       - type: git
         url: "https://github.com/Matoking/protontricks.git"
-        tag: "1.7.0"
-        commit: 12df681aae1e34785d93539ec6589fe6a9a89c6a
+        commit: 9007e4d7eff9d86ecf1bd36310cfef1ee62451a7
       - type: patch
         paths:
           # Flathub does not support stock icons. Use a vendored icon from the
