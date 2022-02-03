@@ -250,6 +250,16 @@ modules:
             post-install:
               - "find ${FLATPAK_DEST}/lib/perl5 -type f -exec chmod u+w {} \\;"
 
+          - name: aria2
+            config-opts:
+              - --disable-libaria2
+              - --disable-websocket
+              - --without-sqlite3
+            sources:
+              - type: archive
+                sha256: 58d1e7608c12404f0229a3d9a4953d0d00c18040504498b483305bcb3de907a5
+                url: "https://github.com/aria2/aria2/releases/download/release-1.36.0/aria2-1.36.0.tar.xz"
+
   - name: bundle-setup
     buildsystem: simple
     build-commands:
