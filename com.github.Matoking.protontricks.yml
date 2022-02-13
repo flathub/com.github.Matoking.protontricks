@@ -24,6 +24,7 @@ finish-args:
   - --allow=multiarch
   - --allow=devel
   - --allow=bluetooth
+  - --allow=per-app-dev-shm
   - --env=LC_ADDRESS=C
   - --env=LC_COLLATE=C
   - --env=LC_MONETARY=C
