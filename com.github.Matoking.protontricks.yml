@@ -3,6 +3,7 @@ id: com.github.Matoking.protontricks
 runtime: org.freedesktop.Platform
 runtime-version: "21.08"
 sdk: org.freedesktop.Sdk
+separate-locales: false
 command: protontricks
 finish-args:
   # Copy some args from Steam Flatpak to make the environment similar
@@ -23,6 +24,13 @@ finish-args:
   - --allow=multiarch
   - --allow=devel
   - --allow=bluetooth
+  - --env=LC_ADDRESS=C
+  - --env=LC_COLLATE=C
+  - --env=LC_MONETARY=C
+  - --env=LC_MEASUREMENT=C
+  - --env=LC_NAME=C
+  - --env=LC_NUMERIC=C
+  - --env=LC_TELEPHONE=C
   - --env=ALSA_CONFIG_PATH=
   - --unset-env=ALSA_CONFIG_PATH
   - --env=MESA_GLSL_CACHE_DIR=
