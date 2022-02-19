@@ -2,6 +2,7 @@
 id: com.github.Matoking.protontricks
 runtime: org.freedesktop.Platform
 runtime-version: "21.08"
+separate-locales: false
 sdk: org.freedesktop.Sdk
 command: protontricks
 finish-args:
@@ -23,6 +24,15 @@ finish-args:
   - --allow=multiarch
   - --allow=devel
   - --allow=bluetooth
+  - --env=TZ=
+  - --unset-env=TZ
+  - --env=LC_ADDRESS=C
+  - --env=LC_COLLATE=C
+  - --env=LC_MONETARY=C
+  - --env=LC_MEASUREMENT=C
+  - --env=LC_NAME=C
+  - --env=LC_NUMERIC=C
+  - --env=LC_TELEPHONE=C
   - --env=ALSA_CONFIG_PATH=
   - --unset-env=ALSA_CONFIG_PATH
   - --env=MESA_GLSL_CACHE_DIR=
@@ -41,6 +51,9 @@ finish-args:
   - --filesystem=~/.var/app/com.valvesoftware.Steam
   - --filesystem=xdg-data/Steam
   - --filesystem=~/.steam
+
+  # Allow IPC between Wine processes inside the sandbox
+  - --allow=per-app-dev-shm
 
 add-extensions:
   org.freedesktop.Platform.Compat.i386:
@@ -98,7 +111,7 @@ modules:
     sources:
       - type: git
         url: "https://github.com/Matoking/protontricks.git"
-        commit: 3e6dc84701748f0fd3c26806f03c8993eb6cc235
+        commit: 532e00fb0b4d550e7c6fec7a31f446dfab2b06f6
       - type: patch
         paths:
           # Flathub does not support stock icons. Use a vendored icon from the
