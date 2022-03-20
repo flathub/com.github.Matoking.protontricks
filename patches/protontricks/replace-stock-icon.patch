@@ -33,10 +33,10 @@ index ec0e964..bfd53c7 100644
 +Icon=com.github.Matoking.protontricks
  Keywords=Steam;Proton;Wine;Winetricks;
 diff --git a/src/protontricks/gui.py b/src/protontricks/gui.py
-index b78650d..2c8c179 100644
+index edec447..1d78ee1 100644
 --- a/src/protontricks/gui.py
 +++ b/src/protontricks/gui.py
-@@ -79,7 +79,7 @@ def select_steam_app_with_gui(steam_apps, steam_path, title=None):
+@@ -140,7 +140,7 @@ def select_steam_app_with_gui(steam_apps, steam_path, title=None):
      def _get_yad_args():
          return [
              "yad", "--list", "--no-headers", "--center",
@@ -44,4 +44,13 @@ index b78650d..2c8c179 100644
 +            "--window-icon", "/app/share/icons/hicolor/scalable/apps/com.github.Matoking.protontricks.svg",
              # Disabling markup means we won't have to escape special characters
              "--no-markup",
-             "--search-column", "2"
+             "--search-column", "2",
+@@ -344,7 +344,7 @@ def prompt_filesystem_access(paths, show_dialog=False):
+         ignore = show_text_dialog(
+             title="Protontricks",
+             text=message,
+-            window_icon="wine",
++            window_icon="/app/share/icons/hicolor/scalable/apps/com.github.Matoking.protontricks.svg",
+             cancel_label="Close",
+             ok_label="Ignore, don't ask again",
+             add_cancel_button=True
