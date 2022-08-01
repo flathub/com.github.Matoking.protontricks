@@ -51,6 +51,14 @@ finish-args:
   - --filesystem=xdg-data/Steam
   - --filesystem=~/.steam
 
+  # Common home directories used by Wine and many Windows programs
+  - --filesystem=xdg-desktop
+  - --filesystem=xdg-documents
+  - --filesystem=xdg-pictures
+  - --filesystem=xdg-music
+  - --filesystem=xdg-videos
+  - --filesystem=xdg-download
+
 add-extensions:
   org.freedesktop.Platform.Compat.i386:
     directory: lib/i386-linux-gnu
