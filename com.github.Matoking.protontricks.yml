@@ -129,6 +129,8 @@ modules:
           - patches/protontricks/replace-stock-icon.patch
           - patches/protontricks/rename-launchable.patch
           - patches/protontricks/amend-description.patch
+          # FIXME: Remove this patch once the D-Bus option works with Flatpak
+          - patches/protontricks/revert-bwrap-launcher-dbus.patch
       - type: file
         path: "icon_scalable.svg"
 
