@@ -13,8 +13,6 @@ finish-args:
   - --socket=wayland
   - --socket=x11
   - --socket=pulseaudio
-  # Protontricks assigns each session with its own service ID on the D-Bus
-  - --talk-name=com.github.Matoking.protontricks.*
   - --share=network
   # Steam in -steamos mode uses Network Manager for network settings, e.g.
   # connecting to wifi and so on.
