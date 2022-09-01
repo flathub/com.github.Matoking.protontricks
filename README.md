@@ -19,7 +19,7 @@ Add an alias that allows you to call Protontricks using the `protontricks` alias
 echo "alias protontricks='flatpak run com.github.Matoking.protontricks'" >> ~/.bashrc
 ```
 
-**You will need to restart any terminal emulators you have open for the alias to take effect.**
+**You will need to source the updated file with`. ~/.bashrc` or restart any terminal emulators you have open for the alias to take effect.**
 
 # Configuration
 
