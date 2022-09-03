@@ -120,8 +120,8 @@ modules:
     sources:
       - type: git
         url: "https://github.com/Matoking/protontricks.git"
-        tag: "1.9.1"
-        commit: 6b4d1058649f3348c6473ffde95a2c158dce5656
+        #tag: "1.9.1"
+        commit: 7b333c6fd10da0fb1e7f51ed3701ba01361ea593
       - type: patch
         paths:
           # Flathub does not support stock icons. Use a vendored icon from the
@@ -129,6 +129,8 @@ modules:
           - patches/protontricks/replace-stock-icon.patch
           - patches/protontricks/rename-launchable.patch
           - patches/protontricks/amend-description.patch
+          # FIXME: Remove this patch once the D-Bus option works with Flatpak
+          - patches/protontricks/revert-bwrap-launcher-dbus.patch
       - type: file
         path: "icon_scalable.svg"
 
