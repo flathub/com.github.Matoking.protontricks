@@ -1,7 +1,9 @@
 ---
 id: com.github.Matoking.protontricks
 runtime: org.freedesktop.Platform
-runtime-version: "21.08"
+runtime-version: &runtime-version '22.08'
+x-gl-version: &gl-version '1.4'
+x-gl-versions: &gl-versions 22.08;1.4
 sdk: org.freedesktop.Sdk
 separate-locales: false
 command: protontricks
@@ -62,17 +64,17 @@ finish-args:
 add-extensions:
   org.freedesktop.Platform.Compat.i386:
     directory: lib/i386-linux-gnu
-    version: '21.08'
+    version: *runtime-version
 
   org.freedesktop.Platform.Compat.i386.Debug:
     directory: lib/debug/lib/i386-linux-gnu
-    version: '21.08'
+    version: *runtime-version
     no-autodownload: true
 
   org.freedesktop.Platform.GL32:
     directory: lib/i386-linux-gnu/GL
-    version: '1.4'
-    versions: 21.08;1.4
+    version: *gl-version
+    versions: *gl-versions
     subdirectories: true
     no-autodownload: true
     autodelete: false

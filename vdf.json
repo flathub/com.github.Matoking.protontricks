@@ -7,8 +7,8 @@
     "sources": [
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/1d/d3/b115bd86fdefa50cd035d5d7bb0a299088711218c8eca1dd163cf07508ed/vdf-3.3-py2.py3-none-any.whl",
-            "sha256": "f88db3a3e66e7264da7fdacf0ffa1d99be52dd30510b2c1a1340171b227472e4"
+            "url": "https://files.pythonhosted.org/packages/96/60/6456b687cf55cf60020dcd01f9bc51561c3cc84f05fd8e0feb71ce60f894/vdf-3.4-py2.py3-none-any.whl",
+            "sha256": "68c1a125cc49e343d535af2dd25074e9cb0908c6607f073947c4a04bbe234534"
         }
     ]
 }
