@@ -1,0 +1,28 @@
+From 837afc4f8a4aee7e71370d9daa51bc62b04d12f7 Mon Sep 17 00:00:00 2001
+From: Janne Pulkkinen <janne.pulkkinen@protonmail.com>
+Date: Wed, 23 Nov 2022 19:25:58 +0200
+Subject: [PATCH 2/2] Add "protontricks" marker to version output
+
+The version of Winetricks shipped with Protontricks Flatpak is patched,
+so mark it accordingly to make it clear to any Winetricks maintainers
+receiving bug reports.
+---
+ src/winetricks | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/winetricks b/src/winetricks
+index 5ad8b2f..bb1e9db 100755
+--- a/src/winetricks
++++ b/src/winetricks
+@@ -3234,7 +3234,7 @@ winetricks_print_version()
+     winetricks_get_sha256sum_prog
+ 
+     w_get_sha256sum "$0"
+-    echo "${WINETRICKS_VERSION} - sha256sum: ${_W_gotsha256sum}"
++    echo "${WINETRICKS_VERSION} (protontricks-flatpak) - sha256sum: ${_W_gotsha256sum}"
+ }
+ 
+ # Run a small wine command for internal use
+-- 
+2.38.1
+
