@@ -301,5 +301,4 @@ modules:
       - install -Dm644 ld.so.conf /app/etc/ld.so.conf
     sources:
       - type: file
-        dest-filename: ld.so.conf
-        url: data:/app/lib32%0A/app/lib/i386-linux-gnu%0A
+        path: ld.so.conf
