@@ -122,8 +122,10 @@ modules:
     sources:
       - type: git
         url: "https://github.com/Matoking/protontricks.git"
-        tag: "1.10.0"
-        commit: 5895e76dc9a9645c1eeba05bf4e4191d373b62ab
+        # Get a specific commit that contains a Flatpak specific fix that's
+        # not in a new release yet
+        # tag: "1.10.0"
+        commit: 11eb97e6c79c8b0827786a243d871c07ee18de46
       - type: patch
         paths:
           # Flathub does not support stock icons. Use a vendored icon from the
