@@ -155,18 +155,16 @@ modules:
                 url: "https://launchpad.net/intltool/trunk/0.51.0/+download/intltool-0.51.0.tar.gz"
                 sha256: 67c74d94196b153b774ab9f89b2fa6c6ba79352407037c8c14d5aeb334e959cd
 
+      # Protontricks specific Winetricks fork
       - name: winetricks
         no-autogen: true
         make-install-args:
           - PREFIX=$(FLATPAK_DEST)
         sources:
-          - type: archive
-            url: "https://github.com/Winetricks/winetricks/archive/20220411.tar.gz"
-            sha256: c16e09ee4e5fda48a49ae9515a9c6d175713792be1b85ea92624d93e37effbd0
-          - type: patch
-            paths:
-              - patches/winetricks/disable-64bit-warning.patch
-              - patches/winetricks/update-version.patch
+          - type: git
+            url: "https://github.com/Matoking/winetricks.git"
+            branch: 20220411-pt
+            commit: 0d28f56782b9b9348708deaebbe818897f5131dd
 
         modules:
 
