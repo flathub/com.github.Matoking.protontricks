@@ -217,8 +217,8 @@ modules:
               strip: true
             sources:
               - type: archive
-                url: "https://www.cabextract.org.uk/cabextract-1.9.1.tar.gz"
-                sha256: afc253673c8ef316b4d5c29cc4aa8445844bee14afffbe092ee9469405851ca7
+                url: "https://www.cabextract.org.uk/cabextract-1.11.tar.gz"
+                sha256: b5546db1155e4c718ff3d4b278573604f30dd64c3c5bfd4657cd089b823a3ac6
 
           - name: unrar
             no-autogen: true
