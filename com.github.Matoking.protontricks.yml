@@ -101,6 +101,7 @@ cleanup:
 modules:
 
   - "python3-setuptools-scm.json"
+  - "python3-Pillow.json"
   - "vdf.json"
 
   - name: protontricks
@@ -115,15 +116,15 @@ modules:
       env:
         # Override setuptools-scm version detection.
         # Required because of Flatpak specific patches.
-        SETUPTOOLS_SCM_PRETEND_VERSION: "1.10.3"
+        SETUPTOOLS_SCM_PRETEND_VERSION: "1.10.4"
     post-install:
       - install -Dm644 -t ${FLATPAK_DEST}/share/metainfo data/${FLATPAK_ID}.metainfo.xml
       - rename protontricks ${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/protontricks*.desktop
     sources:
       - type: git
         url: "https://github.com/Matoking/protontricks.git"
-        tag: "1.10.3"
-        commit: 97f4d76c6b76bdd8c8e6a31ee0d65ff754063b79
+        tag: "1.10.4"
+        commit: 52e780b7297a2eb8d6ec9dba946df28eb798c9f7
       - type: patch
         paths:
           # Flathub does not support stock icons. Use a vendored icon from the

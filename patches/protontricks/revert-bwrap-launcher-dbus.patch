@@ -1,6 +1,6 @@
-From 77d1a9f2fba2f5e2baff2fb8ca6e8c85aa886534 Mon Sep 17 00:00:00 2001
+From 02c2a067a5e76bb315d56e406313a1a2ac4c0948 Mon Sep 17 00:00:00 2001
 From: Janne Pulkkinen <janne.pulkkinen@protonmail.com>
-Date: Sat, 3 Sep 2022 12:52:37 +0300
+Date: Sat, 26 Aug 2023 15:42:00 +0300
 Subject: [PATCH] Revert "Launch bwrap launcher using D-Bus instead of sock"
 
 This is required for the Flatpak version of Protontricks, which does not
@@ -16,41 +16,40 @@ Refs #164
 
 This reverts commit 7b333c6fd10da0fb1e7f51ed3701ba01361ea593.
 ---
- CHANGELOG.md                                    |  3 ---
- src/protontricks/data/scripts/bwrap_launcher.sh |  2 +-
- src/protontricks/data/scripts/wine_launch.sh    | 13 ++++---------
- src/protontricks/util.py                        |  2 --
- 4 files changed, 5 insertions(+), 15 deletions(-)
+ CHANGELOG.md                                    | 3 ---
+ src/protontricks/data/scripts/bwrap_launcher.sh | 2 +-
+ src/protontricks/data/scripts/wine_launch.sh    | 7 +------
+ 3 files changed, 2 insertions(+), 10 deletions(-)
 
 diff --git a/CHANGELOG.md b/CHANGELOG.md
-index 92aa849..bff02cc 100644
+index 3482155..7ea16bf 100644
 --- a/CHANGELOG.md
 +++ b/CHANGELOG.md
-@@ -13,9 +13,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+@@ -46,9 +46,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+ ## [1.9.1] - 2022-08-28
  ### Added
   - Print a warning when multiple Steam directories are detected and `STEAM_DIR` is not used to specify the directory
-  
+- 
 -### Changed
 - - Launch Steam Runtime sandbox with `--bus-name` parameter instead of the now deprecated `--socket`
--
+ 
  ### Fixed
   - Fix various crashes due to Wine processes under Steam Runtime sandbox using the incorrect working directory
- 
 diff --git a/src/protontricks/data/scripts/bwrap_launcher.sh b/src/protontricks/data/scripts/bwrap_launcher.sh
-index b5552e1..c2abdb5 100644
+index 6c9b975..3f07170 100644
 --- a/src/protontricks/data/scripts/bwrap_launcher.sh
 +++ b/src/protontricks/data/scripts/bwrap_launcher.sh
-@@ -82,4 +82,4 @@ log_info "Using temporary directory: $PROTONTRICKS_TEMP_PATH"
+@@ -86,4 +86,4 @@ status_fd="$1"
  
- exec "$STEAM_RUNTIME_PATH"/run --share-pid --launcher \
+ exec "$STEAM_RUNTIME_PATH"/run --share-pid --launcher --pass-fd "$status_fd" \
  "${mount_params[@]}" -- \
----bus-name="com.github.Matoking.protontricks.App${STEAM_APPID}_${PROTONTRICKS_SESSION_ID}"
-+--socket="$PROTONTRICKS_TEMP_PATH/launcher.sock"
+---info-fd "$status_fd" --bus-name="com.github.Matoking.protontricks.App${STEAM_APPID}_${PROTONTRICKS_SESSION_ID}"
++--info-fd "$status_fd" --socket="$PROTONTRICKS_TEMP_PATH/launcher.sock"
 diff --git a/src/protontricks/data/scripts/wine_launch.sh b/src/protontricks/data/scripts/wine_launch.sh
-index 1f8a432..faf11da 100644
+index 4511a18..18b3b29 100644
 --- a/src/protontricks/data/scripts/wine_launch.sh
 +++ b/src/protontricks/data/scripts/wine_launch.sh
-@@ -168,15 +168,10 @@ elif [[ "$PROTONTRICKS_STEAM_RUNTIME" = "bwrap" ]]; then
+@@ -168,11 +168,6 @@ elif [[ "$PROTONTRICKS_STEAM_RUNTIME" = "bwrap" ]]; then
  
      log_info "Starting Wine process using 'pressure-vessel-launch'"
  
@@ -59,17 +58,10 @@ index 1f8a432..faf11da 100644
 -    # expose the unique host PID.
 -    bus_name="com.github.Matoking.protontricks.App${STEAM_APPID}_${PROTONTRICKS_SESSION_ID}"
 -
-     # Wait until socket is created
--    if ! dbus-send --print-reply --dest=org.freedesktop.DBus  /org/freedesktop/DBus org.freedesktop.DBus.ListNames | grep -q "$bus_name"; then
--        log_info "bwrap-launcher D-Bus object not yet available, waiting..."
--        while ! dbus-send --print-reply --dest=org.freedesktop.DBus  /org/freedesktop/DBus org.freedesktop.DBus.ListNames | grep -q "$bus_name"; do
-+    if [[ ! -S "$PROTONTRICKS_TEMP_PATH/launcher.sock" ]]; then
-+        log_info "bwrap-launcher socket not yet available, waiting..."
-+        while [[ ! -S "$PROTONTRICKS_TEMP_PATH/launcher.sock" ]]; do
-             sleep 0.25
-         done
-     fi
-@@ -197,7 +192,7 @@ elif [[ "$PROTONTRICKS_STEAM_RUNTIME" = "bwrap" ]]; then
+     # Pass all environment variables to 'steam-runtime-launch-client' except
+     # for problematic variables that should be determined by the launch command
+     # instead.
+@@ -189,7 +184,7 @@ elif [[ "$PROTONTRICKS_STEAM_RUNTIME" = "bwrap" ]]; then
      done
  
      exec "$STEAM_RUNTIME_LAUNCH_SCRIPT" \
@@ -78,26 +70,6 @@ index 1f8a432..faf11da 100644
      --directory "$PWD" \
      --env=PROTONTRICKS_INSIDE_STEAM_RUNTIME=1 \
      "${env_params[@]}" -- "$PROTONTRICKS_PROXY_SCRIPT_PATH" "$@"
-diff --git a/src/protontricks/util.py b/src/protontricks/util.py
-index 5c4772d..cdbd426 100644
---- a/src/protontricks/util.py
-+++ b/src/protontricks/util.py
-@@ -292,7 +292,6 @@ def run_command(
-     wine_environ["PROTON_DIST_PATH"] = str(proton_app.proton_dist_path)
- 
-     wine_environ["STEAM_APP_PATH"] = str(steam_app.install_path)
--    wine_environ["STEAM_APPID"] = str(steam_app.appid)
- 
-     # Unset WINEARCH, which might be set for another Wine installation
-     wine_environ.pop("WINEARCH", "")
-@@ -378,7 +377,6 @@ def run_command(
- 
-     temp_dir = Path(tempfile.mkdtemp(prefix="protontricks-"))
-     wine_environ["PROTONTRICKS_TEMP_PATH"] = str(temp_dir)
--    wine_environ["PROTONTRICKS_SESSION_ID"] = temp_dir.name.split("-")[1]
- 
-     if start_wineserver:
-         wine_environ["PROTONTRICKS_BACKGROUND_WINESERVER"] = "1"
 -- 
-2.37.1
+2.40.1
 
