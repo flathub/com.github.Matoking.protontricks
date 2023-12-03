@@ -216,12 +216,14 @@ modules:
                   - '*.a'
                 sources:
                   - type: archive
-                    url: https://invisible-island.net/archives/ncurses/current/ncurses-6.4-20230812.tgz
-                    sha256: 6b49997a6c076ca09c6a9e0533d29462ad89f13645cd4c3c9145d9d087a58544
+                    url: https://invisible-island.net/archives/ncurses/ncurses-6.4.tar.gz
+                    sha256: 6931283d9ac87c5073f30b6290c4c75f21632bb4fc3603ac8100812bed248159
                     x-checker-data:
                       type: anitya
                       project-id: 2057
                       url-template: https://invisible-mirror.net/archives/ncurses/current/ncurses-$version.tgz
+                      versions:
+                        ">=": "6.5"
 
           - name: p7zip
             no-autogen: true
