@@ -112,19 +112,13 @@ modules:
       # 'protontricks-desktop-install'
       - rm ${FLATPAK_DEST}/bin/protontricks-desktop-install
       - install -Dm644 icon_scalable.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
-    build-options:
-      env:
-        # Override setuptools-scm version detection.
-        # Required because of Flatpak specific patches.
-        SETUPTOOLS_SCM_PRETEND_VERSION: "1.10.5"
     post-install:
       - install -Dm644 -t ${FLATPAK_DEST}/share/metainfo data/${FLATPAK_ID}.metainfo.xml
       - rename protontricks ${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/protontricks*.desktop
     sources:
       - type: git
         url: "https://github.com/Matoking/protontricks.git"
-        tag: "1.10.5"
-        commit: 77afe738935a56fc629a88593999bf52534723ea
+        commit: 774dfec1eb976135284deb06bd68c6d92a555a8f
       - type: patch
         paths:
           # Flathub does not support stock icons. Use a vendored icon from the
