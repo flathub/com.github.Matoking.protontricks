@@ -50,7 +50,7 @@ finish-args:
 
   # Protontricks-specific permissions to grant access to Steam installation
   - --filesystem=~/.var/app/com.valvesoftware.Steam
-  - --filesystem=xdg-data/Steam
+  - --filesystem=~/.local/share/Steam
   - --filesystem=~/.steam
 
   # Common home directories used by Wine and many Windows programs
