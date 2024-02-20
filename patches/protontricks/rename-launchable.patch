@@ -1,5 +1,5 @@
 diff --git a/data/com.github.Matoking.protontricks.metainfo.xml b/data/com.github.Matoking.protontricks.metainfo.xml
-index 470ea86..39487fb 100644
+index 30b907e..6054059 100644
 --- a/data/com.github.Matoking.protontricks.metainfo.xml
 +++ b/data/com.github.Matoking.protontricks.metainfo.xml
 @@ -10,7 +10,7 @@
@@ -8,6 +8,6 @@ index 470ea86..39487fb 100644
    </provides>
 -  <launchable type="desktop-id">protontricks.desktop</launchable>
 +  <launchable type="desktop-id">com.github.Matoking.protontricks.desktop</launchable>
-   <recommends>com.valvesoftware.Steam</recommends>
-   <screenshots>
-     <screenshot type="default">
+   <recommends>
+     <id>com.valvesoftware.Steam</id>
+   </recommends>
