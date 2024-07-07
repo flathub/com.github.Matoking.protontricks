@@ -1,4 +1,3 @@
----
 id: com.github.Matoking.protontricks
 runtime: org.freedesktop.Platform
 runtime-version: &runtime-version '23.08'
@@ -92,22 +91,23 @@ add-extensions:
     autodelete: true
 
 cleanup:
-  - "*.a"
-  - "*.la"
+  - '*.a'
+  - '*.la'
   - /include
   - /lib/pkgconfig
   - /share/aclocal
   - /share/man
 modules:
 
-  - "python3-setuptools-scm.json"
-  - "python3-Pillow.json"
-  - "vdf.json"
+  - python3-setuptools-scm.json
+  - python3-Pillow.json
+  - vdf.json
 
   - name: protontricks
     buildsystem: simple
     build-commands:
-      - pip3 install --no-index --no-build-isolation --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} .
+      - pip3 install --no-index --no-build-isolation --find-links=\"file://${PWD}\"
+        --prefix=${FLATPAK_DEST} .
       # This manifest ships '.desktop' files properly, so no need to install
       # 'protontricks-desktop-install'
       - rm ${FLATPAK_DEST}/bin/protontricks-desktop-install
@@ -116,13 +116,13 @@ modules:
       env:
         # Override setuptools-scm version detection.
         # Required because of Flatpak specific patches.
-        SETUPTOOLS_SCM_PRETEND_VERSION: "1.11.1"
+        SETUPTOOLS_SCM_PRETEND_VERSION: 1.11.1
     post-install:
       - install -Dm644 -t ${FLATPAK_DEST}/share/metainfo data/${FLATPAK_ID}.metainfo.xml
       - rename protontricks ${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/protontricks*.desktop
     sources:
       - type: git
-        url: "https://github.com/Matoking/protontricks.git"
+        url: https://github.com/Matoking/protontricks.git
         # tag: "1.11.1"
         # Commit after 1.11.1 used to add the newly required
         # MetaInfo metadata fields
@@ -137,25 +137,25 @@ modules:
           # FIXME: Remove this patch once the D-Bus option works with Flatpak
           - patches/protontricks/revert-bwrap-launcher-dbus.patch
       - type: file
-        path: "icon_scalable.svg"
+        path: icon_scalable.svg
 
     modules:
 
       - name: yad
         config-opts:
-          - "--enable-standalone"
+          - --enable-standalone
         sources:
           - type: archive
-            url: "https://github.com/v1cont/yad/releases/download/v10.1/yad-10.1.tar.xz"
+            url: https://github.com/v1cont/yad/releases/download/v10.1/yad-10.1.tar.xz
             sha256: 742a5bd55de4b249eee6780bddeccb05c7ff4b158fd9743808f7d280219fd3ab
         modules:
 
           - name: intltool
             cleanup:
-              - "*"
+              - '*'
             sources:
               - type: archive
-                url: "https://launchpad.net/intltool/trunk/0.51.0/+download/intltool-0.51.0.tar.gz"
+                url: https://launchpad.net/intltool/trunk/0.51.0/+download/intltool-0.51.0.tar.gz
                 sha256: 67c74d94196b153b774ab9f89b2fa6c6ba79352407037c8c14d5aeb334e959cd
 
       # Protontricks specific Winetricks fork
@@ -165,7 +165,7 @@ modules:
           - PREFIX=$(FLATPAK_DEST)
         sources:
           - type: git
-            url: "https://github.com/Matoking/winetricks.git"
+            url: https://github.com/Matoking/winetricks.git
             branch: snapshot-2023-08-16-pt
             commit: 67a39b472edeaefb1b06ba54538a6460aa3cbb49
 
@@ -176,8 +176,8 @@ modules:
             sources:
               - type: git
                 url: https://github.com/ThomasDickey/xterm-snapshots.git
-                tag: xterm-364
-                commit: 6b07755324d62a64cfcf11ef750670c2ede583ca
+                tag: xterm-392
+                commit: 738a2d795ee0a6d45c2da87547b87e2766445c9f
                 x-checker-data:
                   type: anitya
                   project-id: 5272
@@ -186,10 +186,10 @@ modules:
             modules:
 
               - name: libXaw
-                sources: &libXaw-sources
+                sources:
                   - type: archive
-                    url: https://xorg.freedesktop.org/releases/individual/lib/libXaw-1.0.12.tar.bz2
-                    sha256: 96fc314874fce9979556321d1d6ee00b5baf32fb333b7278853b4983bc3cdbf6
+                    url: https://xorg.freedesktop.org/releases/individual/lib/libXaw-1.0.16.tar.gz
+                    sha256: 012f90adf8739f2f023d63a5fee1528949cf2aba92ef7ac1abcfc2ae9cf28798
                     x-checker-data:
                       type: anitya
                       project-id: 1766
@@ -199,8 +199,8 @@ modules:
                   - name: xmu
                     sources:
                       - type: archive
-                        url: https://www.x.org/archive/individual/lib/libXmu-1.1.4.tar.xz
-                        sha256: 210de3ab9c3e9382572c25d17c2518a854ce6e2c62c5f8315deac7579e758244
+                        url: https://www.x.org/archive/individual/lib/libXmu-1.2.1.tar.xz
+                        sha256: fcb27793248a39e5fcc5b9c4aec40cc0734b3ca76aac3d7d1c264e7f7e14e8b2
                         x-checker-data:
                           type: anitya
                           project-id: 1785
@@ -218,14 +218,14 @@ modules:
                   - '*.a'
                 sources:
                   - type: archive
-                    url: https://invisible-island.net/archives/ncurses/ncurses-6.4.tar.gz
-                    sha256: 6931283d9ac87c5073f30b6290c4c75f21632bb4fc3603ac8100812bed248159
+                    url: https://invisible-mirror.net/archives/ncurses/current/ncurses-6.5-20240706.tgz
+                    sha256: aabef0d74608be7aa18f35b1d91107f2fb3734b67da2e6df2c115e49a08c5755
                     x-checker-data:
                       type: anitya
                       project-id: 2057
                       url-template: https://invisible-mirror.net/archives/ncurses/current/ncurses-$version.tgz
                       versions:
-                        ">=": "6.5"
+                        '>=': '6.5'
 
           - name: p7zip
             no-autogen: true
@@ -245,19 +245,19 @@ modules:
               - DEST_MAN=$(FLATPAK_DEST)/share/man
             sources:
               - type: archive
-                url: "https://downloads.sourceforge.net/p7zip/p7zip_16.02_src_all.tar.bz2"
+                url: https://downloads.sourceforge.net/p7zip/p7zip_16.02_src_all.tar.bz2
                 sha256: 5eb20ac0e2944f6cb9c2d51dd6c4518941c185347d4089ea89087ffdd6e2341f
               - type: patch
                 paths:
                   - patches/p7zip/gcc10-conversion.patch
               - type: shell
                 only-arches:
-                  - "x86_64"
+                  - x86_64
                 commands:
                   - ln -sf makefile.linux_amd64_asm makefile.machine
               - type: shell
                 only-arches:
-                  - "i386"
+                  - i386
                 commands:
                   - ln -sf makefile.linux_x86_asm_gcc_4.X makefile.machine
             modules:
@@ -266,17 +266,17 @@ modules:
                 buildsystem: cmake-ninja
                 sources:
                   - type: archive
-                    url: "https://github.com/yasm/yasm/archive/v1.3.0.tar.gz"
+                    url: https://github.com/yasm/yasm/archive/v1.3.0.tar.gz
                     sha256: f708be0b7b8c59bc1dbe7134153cd2f31faeebaa8eec48676c10f972a1f13df3
                 cleanup:
-                  - "*"
+                  - '*'
 
           - name: cabextract
             build-options:
               strip: true
             sources:
               - type: archive
-                url: "https://www.cabextract.org.uk/cabextract-1.11.tar.gz"
+                url: https://www.cabextract.org.uk/cabextract-1.11.tar.gz
                 sha256: b5546db1155e4c718ff3d4b278573604f30dd64c3c5bfd4657cd089b823a3ac6
 
           - name: unrar
@@ -287,7 +287,7 @@ modules:
               - DESTDIR=$(FLATPAK_DEST)
             sources:
               - type: archive
-                url: "https://www.rarlab.com/rar/unrarsrc-5.8.3.tar.gz"
+                url: https://www.rarlab.com/rar/unrarsrc-5.8.3.tar.gz
                 sha256: 3591685c8f5bbcb0be09de3d0a0544adb88966b9cccb80986f6cd2b534fd91a6
 
           - name: binutils-ar
@@ -301,42 +301,42 @@ modules:
           - name: perl
             no-autogen: true
             config-opts:
-              - "-des"
+              - -des
             cleanup:
-              - "*.pod"
-              - "/bin/perl5*"
-              - "/bin/c2ph"
-              - "/bin/corelist"
-              - "/bin/cpan"
-              - "/bin/enc2xs"
-              - "/bin/encguess"
-              - "/bin/h2*"
-              - "/bin/instmodsh"
-              - "/bin/json_pp"
-              - "/bin/libnetcfg"
-              - "/bin/perlbug"
-              - "/bin/perldoc"
-              - "/bin/perlthanks"
-              - "/bin/piconv"
-              - "/bin/pl2pm"
-              - "/bin/pod*"
-              - "/bin/prove"
-              - "/bin/pstruct"
-              - "/bin/ptar*"
-              - "/bin/shasum"
-              - "/bin/splain"
-              - "/bin/xsubpp"
-              - "/bin/zipdetails"
+              - '*.pod'
+              - /bin/perl5*
+              - /bin/c2ph
+              - /bin/corelist
+              - /bin/cpan
+              - /bin/enc2xs
+              - /bin/encguess
+              - /bin/h2*
+              - /bin/instmodsh
+              - /bin/json_pp
+              - /bin/libnetcfg
+              - /bin/perlbug
+              - /bin/perldoc
+              - /bin/perlthanks
+              - /bin/piconv
+              - /bin/pl2pm
+              - /bin/pod*
+              - /bin/prove
+              - /bin/pstruct
+              - /bin/ptar*
+              - /bin/shasum
+              - /bin/splain
+              - /bin/xsubpp
+              - /bin/zipdetails
             sources:
               - type: archive
-                url: "https://www.cpan.org/src/5.0/perl-5.32.0.tar.gz"
+                url: https://www.cpan.org/src/5.0/perl-5.32.0.tar.gz
                 sha256: efeb1ce1f10824190ad1cadbcccf6fdb8a5d37007d0100d2d9ae5f2b5900c0b4
               - type: script
                 dest-filename: configure
                 commands:
-                  - "exec ./configure.gnu $@"
+                  - exec ./configure.gnu $@
             post-install:
-              - "find ${FLATPAK_DEST}/lib/perl5 -type f -exec chmod u+w {} \\;"
+              - find ${FLATPAK_DEST}/lib/perl5 -type f -exec chmod u+w {} \;
 
           - name: aria2
             config-opts:
@@ -346,7 +346,7 @@ modules:
             sources:
               - type: archive
                 sha256: 58d1e7608c12404f0229a3d9a4953d0d00c18040504498b483305bcb3de907a5
-                url: "https://github.com/aria2/aria2/releases/download/release-1.36.0/aria2-1.36.0.tar.xz"
+                url: https://github.com/aria2/aria2/releases/download/release-1.36.0/aria2-1.36.0.tar.xz
 
   - name: bundle-setup
     buildsystem: simple
