@@ -2,13 +2,13 @@
     "name": "vdf",
     "buildsystem": "simple",
     "build-commands": [
-        "pip3 install --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} vdf"
+        "pip3 install --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} ."
     ],
     "sources": [
         {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/96/60/6456b687cf55cf60020dcd01f9bc51561c3cc84f05fd8e0feb71ce60f894/vdf-3.4-py2.py3-none-any.whl",
-            "sha256": "68c1a125cc49e343d535af2dd25074e9cb0908c6607f073947c4a04bbe234534"
+            "type": "git",
+            "url": "https://github.com/Matoking/vdf.git",
+            "commit": "981cad270c2558aeb8eccaf42cfcf9fabbbed199"
         }
     ]
 }
