@@ -60,6 +60,7 @@ finish-args:
   - --filesystem=xdg-music
   - --filesystem=xdg-videos
   - --filesystem=xdg-download
+  - --filesystem=/run/media/deck
 
 add-extensions:
   org.freedesktop.Platform.Compat.i386:
