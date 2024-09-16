@@ -7,23 +7,13 @@
     "sources": [
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/e2/9f/5e1557a57a7282f066351086e78f87289a3446c47b2cb5b8b2f614d8fe99/tomli-2.0.0-py3-none-any.whl",
-            "sha256": "b5bde28da1fed24b9bd1d4d2b8cba62300bfb4ec9a6187a957e8ddb9434c5224"
+            "url": "https://files.pythonhosted.org/packages/08/aa/cc0199a5f0ad350994d660967a8efb233fe0416e4639146c089643407ce6/packaging-24.1-py3-none-any.whl",
+            "sha256": "5b8f2217dbdbd2f7f384c41c628544e6d52f2d0f53c6d0c3ea61aa5d1d7ff124"
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/a0/34/895006117f6fce0b4de045c87e154ee4a20c68ec0a4c9a36d900888fb6bc/pyparsing-3.0.6-py3-none-any.whl",
-            "sha256": "04ff808a5b90911829c55c4e26f75fa5ca8a2f5f36aa3a51f68e27033341d3e4"
-        },
-        {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/05/8e/8de486cbd03baba4deef4142bd643a3e7bbe954a784dc1bb17142572d127/packaging-21.3-py3-none-any.whl",
-            "sha256": "ef103e05f519cdc783ae24ea4e2e0f508a9c99b2d4969652eed6a2e1ea5bd522"
-        },
-        {
-            "type": "file",
-            "url": "https://files.pythonhosted.org/packages/bc/bf/353180314d0e27929703faf240c244f25ae765e01f595a010cafb209ab51/setuptools_scm-6.3.2-py3-none-any.whl",
-            "sha256": "4c64444b1d49c4063ae60bfe1680f611c8b13833d556fd1d6050c0023162a119"
+            "url": "https://files.pythonhosted.org/packages/a0/b9/1906bfeb30f2fc13bb39bf7ddb8749784c05faadbd18a21cf141ba37bff2/setuptools_scm-8.1.0-py3-none-any.whl",
+            "sha256": "897a3226a6fd4a6eb2f068745e49733261a21f70b1bb28fce0339feb978d9af3"
         }
     ]
 }
