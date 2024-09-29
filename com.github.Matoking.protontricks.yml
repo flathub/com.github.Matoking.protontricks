@@ -123,7 +123,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/Matoking/protontricks.git
-        tag: "1.12.0"
+        tag: 1.12.0
         commit: e6bb313797a1345770f6937a50803095a6a07173
       - type: patch
         paths:
@@ -215,8 +215,8 @@ modules:
                   - '*.a'
                 sources:
                   - type: archive
-                    url: https://invisible-mirror.net/archives/ncurses/current/ncurses-6.5-20240914.tgz
-                    sha256: fe1c20f231c5a769ca6b1dbd5f367f6921082ce73417eb7d30db258d86822164
+                    url: https://invisible-mirror.net/archives/ncurses/current/ncurses-6.5-20240928.tgz
+                    sha256: b411ec89b57a07bd4f8a787cc99cf47e0bd0704d829fa2dee04f6d15c2a50a07
                     x-checker-data:
                       type: anitya
                       project-id: 2057
