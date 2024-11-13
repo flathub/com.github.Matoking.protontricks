@@ -51,6 +51,8 @@ finish-args:
   - --filesystem=~/.var/app/com.valvesoftware.Steam
   - --filesystem=~/.local/share/Steam
   - --filesystem=~/.steam
+  - --filesystem=~/snap/steam
+  - --filesystem=~/.snap/data/steam  # For 'experimental.hidden-snap-folder'
 
   # Common home directories used by Wine and many Windows programs
   - --filesystem=xdg-desktop
