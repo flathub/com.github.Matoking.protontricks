@@ -7,8 +7,12 @@
     "sources": [
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/cd/74/ad3d526f3bf7b6d3f408b73fde271ec69dfac8b81341a318ce825f2b3812/pillow-10.4.0.tar.gz",
-            "sha256": "166c1cd4d24309b30d61f79f4a9114b7b2313d7450912277855ff5dfd7cd4a06"
+            "url": "https://files.pythonhosted.org/packages/a5/26/0d95c04c868f6bdb0c447e3ee2de5564411845e36a858cfd63766bc7b563/pillow-11.0.0.tar.gz",
+            "sha256": "72bacbaf24ac003fea9bff9837d1eedb6088758d41e100c1552930151f677739",
+            "x-checker-data": {
+                "type": "pypi",
+                "name": "pillow"
+            }
         }
     ]
 }
