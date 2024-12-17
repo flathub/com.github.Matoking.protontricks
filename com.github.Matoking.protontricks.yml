@@ -2,7 +2,7 @@ id: com.github.Matoking.protontricks
 runtime: org.freedesktop.Platform
 runtime-version: &runtime-version '24.08'
 x-gl-version: &gl-version '1.4'
-x-gl-versions: &gl-versions 24.08;24.08-extra;1.4
+x-gl-versions: &gl-versions 24.08;24.08extra;1.4
 sdk: org.freedesktop.Sdk
 separate-locales: false
 command: protontricks
