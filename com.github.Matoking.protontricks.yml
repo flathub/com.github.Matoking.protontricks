@@ -229,18 +229,18 @@ modules:
                       versions:
                         '>=': '6.5'
 
-            - name: 7zip
-              buildsystem: simple
-              subdir: CPP/7zip/Bundles/Alone2
-              build-commands:
-                - make -j -f makefile.gcc
-                - install -D ./_o/7zz -t /app/bin
-                - ln -s /app/bin/7zz /app/bin/7za
-              sources:
-                - type: archive
-                  url: https://www.7-zip.org/a/7z2409-src.tar.xz
-                  sha256: 49c05169f49572c1128453579af1632a952409ced028259381dac30726b6133a
-                  strip-components: 0
+          - name: 7zip
+            buildsystem: simple
+            subdir: CPP/7zip/Bundles/Alone2
+            build-commands:
+              - make -j -f makefile.gcc
+              - install -D ./_o/7zz -t /app/bin
+              - ln -s /app/bin/7zz /app/bin/7za
+            sources:
+              - type: archive
+                url: https://www.7-zip.org/a/7z2409-src.tar.xz
+                sha256: 49c05169f49572c1128453579af1632a952409ced028259381dac30726b6133a
+                strip-components: 0
 
           - name: cabextract
             build-options:
