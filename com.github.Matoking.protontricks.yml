@@ -237,10 +237,12 @@ modules:
               - install -D ./_o/7zz -t /app/bin
               - ln -s /app/bin/7zz /app/bin/7za
             sources:
-              - type: archive
-                url: https://www.7-zip.org/a/7z2409-src.tar.xz
-                sha256: 49c05169f49572c1128453579af1632a952409ced028259381dac30726b6133a
+              - type: git
+                url: https://github.com/ip7z/7zip.git
+                tag: 24.09
                 strip-components: 0
+                x-checker-data:
+                  type: git
 
           - name: cabextract
             build-options:
@@ -254,20 +256,21 @@ modules:
                   project-id: 245
                   url-template: https://www.cabextract.org.uk/cabextract-$version.tar.gz
 
-          - name: unrar
-            no-autogen: true
-            build-options:
-              strip: true
-            make-install-args:
-              - DESTDIR=$(FLATPAK_DEST)
+          - name: unrar-free
+            post-install:
+              - ln -s /app/bin/unrar-free /app/bin/unrar
             sources:
               - type: archive
-                url: https://www.rarlab.com/rar/unrarsrc-7.1.2.tar.gz
-                sha256: 143dcacb3a9d9ca0af695adecabe1350b0a3e93d927a065ef8f7cc605ab2d322
+                url: https://gitlab.com/bgermann/unrar-free/-/archive/0.3.1/unrar-free-0.3.1.tar.gz
+                sha256: 16ecd4cf8b236d472413d179721e40b2270262f32844e10435fe45dd68053fb8
                 x-checker-data:
                   type: anitya
-                  project-id: 13306
-                  url-template: https://www.rarlab.com/rar/unrarsrc-$version.tar.gz
+                  project-id: 243110
+                  url-template: https://gitlab.com/bgermann/unrar-free/-/archive/$version/unrar-free-$version.tar.gz
+              - type: script
+                dest-filename: autogen.sh
+                commands:
+                - autoreconf -vfi
 
           - name: binutils-ar
             buildsystem: simple
