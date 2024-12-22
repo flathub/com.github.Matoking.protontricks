@@ -125,7 +125,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/Matoking/protontricks.git
-        tag: "1.12.0"
+        tag: 1.12.0
         commit: e6bb313797a1345770f6937a50803095a6a07173
       - type: patch
         paths:
@@ -175,8 +175,8 @@ modules:
             sources:
               - type: git
                 url: https://github.com/ThomasDickey/xterm-snapshots.git
-                tag: xterm-394
-                commit: 47a95ffdc1bef07ec62836ed887536b5d92166af
+                tag: xterm-396
+                commit: d84b6620153163b822bdbfbb83bed0481c1b34a1
                 x-checker-data:
                   type: anitya
                   project-id: 5272
@@ -217,8 +217,8 @@ modules:
                   - '*.a'
                 sources:
                   - type: archive
-                    url: https://invisible-mirror.net/archives/ncurses/current/ncurses-6.5-20240914.tgz
-                    sha256: fe1c20f231c5a769ca6b1dbd5f367f6921082ce73417eb7d30db258d86822164
+                    url: https://invisible-mirror.net/archives/ncurses/current/ncurses-6.5-20241221.tgz
+                    sha256: b84e20edd1d8fea37ee42567f5798386e1a8c712efa722439ffeadecb1869523
                     x-checker-data:
                       type: anitya
                       project-id: 2057
