@@ -236,6 +236,7 @@ modules:
               - make -j -f makefile.gcc
               - install -D ./_o/7zz -t /app/bin
               - ln -s /app/bin/7zz /app/bin/7za
+              - ln -s /app/bin/7zz /app/bin/7z
             sources:
               - type: archive
                 url: https://www.7-zip.org/a/7z2409-src.tar.xz
