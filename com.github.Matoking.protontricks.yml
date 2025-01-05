@@ -124,7 +124,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/Matoking/protontricks.git
-        tag: "1.12.0"
+        tag: 1.12.0
         commit: e6bb313797a1345770f6937a50803095a6a07173
       - type: patch
         paths:
@@ -148,9 +148,9 @@ modules:
             url: https://github.com/v1cont/yad/releases/download/v14.1/yad-14.1.tar.xz
             sha256: dde047a915cd8d3892c32b6ba031876f5cda673e01882c99613f043867c88133
             x-checker-data:
-                type: anitya
-                project-id: 5280
-                url-template: https://github.com/v1cont/yad/releases/download/v$version/yad-$version.tar.xz
+              type: anitya
+              project-id: 5280
+              url-template: https://github.com/v1cont/yad/releases/download/v$version/yad-$version.tar.xz
         modules:
 
           - name: intltool
@@ -178,8 +178,8 @@ modules:
             sources:
               - type: git
                 url: https://github.com/ThomasDickey/xterm-snapshots.git
-                tag: xterm-394
-                commit: 47a95ffdc1bef07ec62836ed887536b5d92166af
+                tag: xterm-396
+                commit: d84b6620153163b822bdbfbb83bed0481c1b34a1
                 x-checker-data:
                   type: anitya
                   project-id: 5272
@@ -272,7 +272,7 @@ modules:
               - type: script
                 dest-filename: autogen.sh
                 commands:
-                - autoreconf -vfi
+                  - autoreconf -vfi
 
           - name: binutils-ar
             buildsystem: simple
