@@ -62,6 +62,10 @@ finish-args:
   - --filesystem=xdg-videos
   - --filesystem=xdg-download
 
+  # Secondary drives
+  - --filesystem=/run/media
+  - --filesystem=/mnt
+
 add-extensions:
   org.freedesktop.Platform.Compat.i386:
     directory: lib/i386-linux-gnu
