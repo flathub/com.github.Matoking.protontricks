@@ -65,6 +65,7 @@ finish-args:
   # Secondary drives
   - --filesystem=/run/media
   - --filesystem=/mnt
+  - --filesystem=/media
 
 add-extensions:
   org.freedesktop.Platform.Compat.i386:
