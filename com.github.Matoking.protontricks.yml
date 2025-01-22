@@ -125,7 +125,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/Matoking/protontricks.git
-        tag: "1.12.0"
+        tag: 1.12.0
         commit: e6bb313797a1345770f6937a50803095a6a07173
       - type: patch
         paths:
@@ -149,9 +149,9 @@ modules:
             url: https://github.com/v1cont/yad/releases/download/v14.1/yad-14.1.tar.xz
             sha256: dde047a915cd8d3892c32b6ba031876f5cda673e01882c99613f043867c88133
             x-checker-data:
-                type: anitya
-                project-id: 5280
-                url-template: https://github.com/v1cont/yad/releases/download/v$version/yad-$version.tar.xz
+              type: anitya
+              project-id: 5280
+              url-template: https://github.com/v1cont/yad/releases/download/v$version/yad-$version.tar.xz
         modules:
 
           - name: intltool
@@ -179,8 +179,8 @@ modules:
             sources:
               - type: git
                 url: https://github.com/ThomasDickey/xterm-snapshots.git
-                tag: xterm-394
-                commit: 47a95ffdc1bef07ec62836ed887536b5d92166af
+                tag: xterm-397
+                commit: 4bb132c0c7113c06124b10051465dab9b18388fd
                 x-checker-data:
                   type: anitya
                   project-id: 5272
@@ -221,8 +221,8 @@ modules:
                   - '*.a'
                 sources:
                   - type: archive
-                    url: https://invisible-mirror.net/archives/ncurses/current/ncurses-6.5-20240914.tgz
-                    sha256: fe1c20f231c5a769ca6b1dbd5f367f6921082ce73417eb7d30db258d86822164
+                    url: https://invisible-mirror.net/archives/ncurses/current/ncurses-6.5-20250118.tgz
+                    sha256: 254107c991d63cb1bd724fd52d8bf7776d916522665b8dd160d9c454bac07ddb
                     x-checker-data:
                       type: anitya
                       project-id: 2057
@@ -273,7 +273,7 @@ modules:
               - type: script
                 dest-filename: autogen.sh
                 commands:
-                - autoreconf -vfi
+                  - autoreconf -vfi
 
           - name: binutils-ar
             buildsystem: simple
