@@ -107,6 +107,7 @@ cleanup:
 modules:
 
   - python3-Pillow.json
+  - python3-setuptools-scm.json
   - vdf.json
 
   - name: protontricks
