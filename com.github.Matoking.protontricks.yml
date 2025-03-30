@@ -221,8 +221,8 @@ modules:
                   - '*.a'
                 sources:
                   - type: archive
-                    url: https://invisible-mirror.net/archives/ncurses/current/ncurses-6.5-20250301.tgz
-                    sha256: b19934a5ca9e4425c4ad82d7335cec3ab03526d99c9d2cb5ea1c4f9269b31b1c
+                    url: https://invisible-mirror.net/archives/ncurses/current/ncurses-6.5-20250329.tgz
+                    sha256: 192f9e567b2ac4fa121602fc169dba5eda3da5a839a4cc5e6bf5f45aa25fb42c
                     x-checker-data:
                       type: anitya
                       project-id: 2057
