@@ -245,7 +245,7 @@ modules:
                 strip-components: 0
                 x-checker-data:
                   type: git
-                  tag-pattern: ^v([\\d.]+)$
+                  tag-pattern: ^([\\d.]+)$
 
           - name: cabextract
             build-options:
