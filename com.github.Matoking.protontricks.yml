@@ -179,8 +179,8 @@ modules:
             sources:
               - type: git
                 url: https://github.com/ThomasDickey/xterm-snapshots.git
-                tag: xterm-397
-                commit: 4bb132c0c7113c06124b10051465dab9b18388fd
+                tag: xterm-399
+                commit: d4f08d309169562dd0158a847d3b5e1b10a595ee
                 x-checker-data:
                   type: anitya
                   project-id: 5272
@@ -221,8 +221,8 @@ modules:
                   - '*.a'
                 sources:
                   - type: archive
-                    url: https://invisible-mirror.net/archives/ncurses/current/ncurses-6.5-20250301.tgz
-                    sha256: b19934a5ca9e4425c4ad82d7335cec3ab03526d99c9d2cb5ea1c4f9269b31b1c
+                    url: https://invisible-mirror.net/archives/ncurses/current/ncurses-6.5-20250614.tgz
+                    sha256: c78a054fd86b0d6cbaad4a2489c0fe685a8e5ad123da20083f7b443f6223da3c
                     x-checker-data:
                       type: anitya
                       project-id: 2057
@@ -265,8 +265,8 @@ modules:
               - ln -s /app/bin/unrar-free /app/bin/unrar
             sources:
               - type: archive
-                url: https://gitlab.com/bgermann/unrar-free/-/archive/0.3.1/unrar-free-0.3.1.tar.gz
-                sha256: 16ecd4cf8b236d472413d179721e40b2270262f32844e10435fe45dd68053fb8
+                url: https://gitlab.com/bgermann/unrar-free/-/archive/0.3.2/unrar-free-0.3.2.tar.gz
+                sha256: 1dd3a090d44e4ca8dfb052516fbf05ca613e7223c3645043110dafb01cd68a78
                 x-checker-data:
                   type: anitya
                   project-id: 243110
