@@ -243,7 +243,6 @@ modules:
                 url: https://github.com/ip7z/7zip.git
                 tag: '24.09'
                 commit: e5431fa6f5505e385c6f9367260717e9c47dc2ee
-                strip-components: 0
                 x-checker-data:
                   type: git
                   tag-pattern: ^([\d.]+)$
