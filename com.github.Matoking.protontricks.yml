@@ -118,15 +118,15 @@ modules:
       env:
         # Override setuptools-scm version detection.
         # Required because of Flatpak specific patches.
-        SETUPTOOLS_SCM_PRETEND_VERSION: 1.12.1
+        SETUPTOOLS_SCM_PRETEND_VERSION: 1.13.0
     post-install:
       - install -Dm644 -t ${FLATPAK_DEST}/share/metainfo data/${FLATPAK_ID}.metainfo.xml
       - rename protontricks ${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/protontricks*.desktop
     sources:
       - type: git
         url: https://github.com/Matoking/protontricks.git
-        tag: 1.12.1
-        commit: d01901e2b09835c754127905064cac228592d8dd
+        tag: 1.13.0
+        commit: aa8f1b1337e9c2c1bbd79f1d1d1537d22374036e
       - type: patch
         paths:
           # Flathub does not support stock icons. Use a vendored icon from the
