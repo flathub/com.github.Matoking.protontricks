@@ -179,8 +179,8 @@ modules:
             sources:
               - type: git
                 url: https://github.com/ThomasDickey/xterm-snapshots.git
-                tag: xterm-399
-                commit: d4f08d309169562dd0158a847d3b5e1b10a595ee
+                tag: xterm-401
+                commit: 8704589513bcc1da1ae7a33ccf54468377bce50a
                 x-checker-data:
                   type: anitya
                   project-id: 5272
@@ -221,8 +221,8 @@ modules:
                   - '*.a'
                 sources:
                   - type: archive
-                    url: https://invisible-mirror.net/archives/ncurses/current/ncurses-6.5-20250614.tgz
-                    sha256: c78a054fd86b0d6cbaad4a2489c0fe685a8e5ad123da20083f7b443f6223da3c
+                    url: https://invisible-mirror.net/archives/ncurses/current/ncurses-6.5-20250816.tgz
+                    sha256: 300008d64f5f066c8757d23f753a936e8b67d7e7302d19682ef5a4d90cfbd3b4
                     x-checker-data:
                       type: anitya
                       project-id: 2057
@@ -241,8 +241,8 @@ modules:
             sources:
               - type: git
                 url: https://github.com/ip7z/7zip.git
-                tag: '24.09'
-                commit: e5431fa6f5505e385c6f9367260717e9c47dc2ee
+                tag: '25.01'
+                commit: 5e96a8279489832924056b1fa82f29d5837c9469
                 x-checker-data:
                   type: git
                   tag-pattern: ^([\d.]+)$
@@ -264,8 +264,8 @@ modules:
               - ln -s /app/bin/unrar-free /app/bin/unrar
             sources:
               - type: archive
-                url: https://gitlab.com/bgermann/unrar-free/-/archive/0.3.2/unrar-free-0.3.2.tar.gz
-                sha256: 1dd3a090d44e4ca8dfb052516fbf05ca613e7223c3645043110dafb01cd68a78
+                url: https://gitlab.com/bgermann/unrar-free/-/archive/0.3.3/unrar-free-0.3.3.tar.gz
+                sha256: e0d52bded7863b81cbc4313929d0ad2e4d2e449bf96c85b436658eda02c506a7
                 x-checker-data:
                   type: anitya
                   project-id: 243110
