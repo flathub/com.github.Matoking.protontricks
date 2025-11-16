@@ -179,8 +179,8 @@ modules:
             sources:
               - type: git
                 url: https://github.com/ThomasDickey/xterm-snapshots.git
-                tag: xterm-401
-                commit: 8704589513bcc1da1ae7a33ccf54468377bce50a
+                tag: xterm-403
+                commit: 1b8146571535adeee117fc4db331a4b44eda74a9
                 x-checker-data:
                   type: anitya
                   project-id: 5272
@@ -221,8 +221,8 @@ modules:
                   - '*.a'
                 sources:
                   - type: archive
-                    url: https://invisible-mirror.net/archives/ncurses/current/ncurses-6.5-20250830.tgz
-                    sha256: 519ec9f748d7f2873cf763394fc766a701967439610125ad0fbf76ab2c7510a5
+                    url: https://invisible-mirror.net/archives/ncurses/current/ncurses-6.5-20251115.tgz
+                    sha256: 8b243c21571299bb68e1a4f1b600351468c05ebc2fd472b57290efd7b5d83f22
                     x-checker-data:
                       type: anitya
                       project-id: 2057
