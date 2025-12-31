@@ -146,8 +146,8 @@ modules:
           - --enable-standalone
         sources:
           - type: archive
-            url: https://github.com/v1cont/yad/releases/download/v14.1/yad-14.1.tar.xz
-            sha256: dde047a915cd8d3892c32b6ba031876f5cda673e01882c99613f043867c88133
+            url: https://github.com/v1cont/yad/releases/download/v14.2/yad-14.2.tar.xz
+            sha256: 5cab399af8d9a10b76d477f848180d00addba38f4f1272a05b153a393bba3038
             x-checker-data:
               type: anitya
               project-id: 5280
@@ -179,8 +179,8 @@ modules:
             sources:
               - type: git
                 url: https://github.com/ThomasDickey/xterm-snapshots.git
-                tag: xterm-401
-                commit: 8704589513bcc1da1ae7a33ccf54468377bce50a
+                tag: xterm-406
+                commit: caac5c35a22d116ed09a54c962fce3ee7a7f99d2
                 x-checker-data:
                   type: anitya
                   project-id: 5272
@@ -221,8 +221,8 @@ modules:
                   - '*.a'
                 sources:
                   - type: archive
-                    url: https://invisible-mirror.net/archives/ncurses/current/ncurses-6.5-20250830.tgz
-                    sha256: 519ec9f748d7f2873cf763394fc766a701967439610125ad0fbf76ab2c7510a5
+                    url: https://invisible-mirror.net/archives/ncurses/current/ncurses-6.6-20251230.tgz
+                    sha256: 4c8e657b439659396c2935d70a9259220097c4a3b5d520fa3409ef5e1f9caae2
                     x-checker-data:
                       type: anitya
                       project-id: 2057
