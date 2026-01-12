@@ -3,6 +3,8 @@ Protontricks for Flatpak
 
 [Protontricks](https://github.com/Matoking/protontricks) packaged for Flatpak. Compatible with both native and Flatpak Steam installations.
 
+Application icon uses [Wine icon](https://invent.kde.org/frameworks/breeze-icons/-/blob/55750e4ef0f0f3646ec82566e1719a477f8bacd2/icons/apps/48/wine.svg) from KDE Breeze Icons icon theme, [licensed](https://invent.kde.org/frameworks/breeze-icons/-/blob/master/COPYING-ICONS) under LGPL 3.
+
 # Installation
 
 You can install Protontricks for Flatpak from the Flathub repository. You need to have Flatpak installed with the Flathub repository configured. For installing Flatpak and configuring Flathub, see the [official installation instructions](https://flatpak.org/setup/).
