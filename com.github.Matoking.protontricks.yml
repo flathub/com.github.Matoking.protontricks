@@ -171,7 +171,7 @@ modules:
         sources:
           - type: git
             url: https://github.com/Matoking/winetricks.git
-            commit: 72e26af1552a237790c55db14be84c8d384c87e2  # branch: 20250102-pt
+            commit: a8b93ce18e471a711309bc935112000b37840e07  # branch: 20260125-pt
 
         modules:
 
