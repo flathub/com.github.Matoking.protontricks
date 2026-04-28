@@ -15,10 +15,11 @@ Install Protontricks for Flatpak using the following command:
 flatpak install flathub com.github.Matoking.protontricks
 ```
 
-Add an alias that allows you to call Protontricks using the `protontricks` alias:
+Add an alias that allows you to call Protontricks using the `protontricks` and `protontricks-launch` alias:
 
 ```sh
 echo "alias protontricks='flatpak run com.github.Matoking.protontricks'" >> ~/.bashrc
+echo "alias protontricks-launch='flatpak run --command=protontricks-launch com.github.Matoking.protontricks'" >> ~/.bashrc
 ```
 
 **You will need to source the updated file with`. ~/.bashrc` or restart any terminal emulators you have open for the alias to take effect.**
