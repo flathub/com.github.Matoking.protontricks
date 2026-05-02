@@ -15,14 +15,14 @@ Install Protontricks for Flatpak using the following command:
 flatpak install flathub com.github.Matoking.protontricks
 ```
 
-Add an alias that allows you to call Protontricks using the `protontricks` and `protontricks-launch` alias:
+Add aliases that allow you to call Protontricks using `protontricks` and `protontricks-launch`:
 
 ```sh
 echo "alias protontricks='flatpak run com.github.Matoking.protontricks'" >> ~/.bashrc
 echo "alias protontricks-launch='flatpak run --command=protontricks-launch com.github.Matoking.protontricks'" >> ~/.bashrc
 ```
 
-**You will need to source the updated file with`. ~/.bashrc` or restart any terminal emulators you have open for the alias to take effect.**
+**You will need to source the updated file with`. ~/.bashrc` or restart any terminal emulators you have open for the aliases to take effect.**
 
 # Configuration
 
@@ -46,7 +46,7 @@ flatpak override --user --filesystem=/mnt/MySSD/SteamLibrary com.github.Matoking
 
 ## Command-line
 
-After you have installed Protontricks and added the alias, you can run Protontricks commands using the alias you configured:
+After you have installed Protontricks and added the aliases, you can run Protontricks commands as such:
 
 ```sh
 # Find your game's App ID by searching for it
@@ -54,6 +54,9 @@ protontricks -s <GAME NAME>
 
 # Run winetricks for the game
 protontricks <APPID> <ACTIONS>
+
+# Launch an external application
+protontricks-launch --appid <APPID> <EXE>
 ```
 
 For the rest of the usage options, [see the README](https://github.com/Matoking/protontricks/blob/master/README.md) on the main Protontricks repository.
