@@ -147,8 +147,8 @@ modules:
           - --enable-standalone
         sources:
           - type: archive
-            url: https://github.com/v1cont/yad/releases/download/v14.1/yad-14.1.tar.xz
-            sha256: dde047a915cd8d3892c32b6ba031876f5cda673e01882c99613f043867c88133
+            url: https://github.com/v1cont/yad/releases/download/v15.0/yad-15.0.tar.xz
+            sha256: 7cf4dc136a643bf484ceab27d9b28a513624dffe38a08731132c0e4e24073772
             x-checker-data:
               type: anitya
               project-id: 5280
@@ -180,8 +180,8 @@ modules:
             sources:
               - type: git
                 url: https://github.com/ThomasDickey/xterm-snapshots.git
-                tag: xterm-401
-                commit: 8704589513bcc1da1ae7a33ccf54468377bce50a
+                tag: xterm-411
+                commit: 9489b2056ee51fa9dd6a7087483b9b8f85d6a0c4
                 x-checker-data:
                   type: anitya
                   project-id: 5272
@@ -203,8 +203,8 @@ modules:
                   - name: xmu
                     sources:
                       - type: archive
-                        url: https://www.x.org/archive/individual/lib/libXmu-1.2.1.tar.xz
-                        sha256: fcb27793248a39e5fcc5b9c4aec40cc0734b3ca76aac3d7d1c264e7f7e14e8b2
+                        url: https://www.x.org/archive/individual/lib/libXmu-1.3.1.tar.xz
+                        sha256: 81a99e94c4501e81c427cbaa4a11748b584933e94b7a156830c3621256857bc4
                         x-checker-data:
                           type: anitya
                           project-id: 1785
@@ -222,8 +222,8 @@ modules:
                   - '*.a'
                 sources:
                   - type: archive
-                    url: https://invisible-mirror.net/archives/ncurses/current/ncurses-6.5-20250830.tgz
-                    sha256: 519ec9f748d7f2873cf763394fc766a701967439610125ad0fbf76ab2c7510a5
+                    url: https://invisible-mirror.net/archives/ncurses/current/ncurses-6.6-20260912.tgz
+                    sha256: bc14b72df2511e92ad544e971cd383729220787ebd4985d1c81268d6b7b2cc54
                     x-checker-data:
                       type: anitya
                       project-id: 2057
@@ -242,8 +242,8 @@ modules:
             sources:
               - type: git
                 url: https://github.com/ip7z/7zip.git
-                tag: '25.01'
-                commit: 5e96a8279489832924056b1fa82f29d5837c9469
+                tag: '26.03'
+                commit: 0766b733fe3e06dd2a7f9a3cfbf2108ac73abd17
                 x-checker-data:
                   type: git
                   tag-pattern: ^([\d.]+)$
