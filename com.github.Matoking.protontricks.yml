@@ -86,6 +86,26 @@ add-extensions:
     enable-if: active-gl-driver
     autoprune-unless: active-gl-driver
 
+  org.freedesktop.Platform.VAAPI.Intel.i386:
+    directory: lib/i386-linux-gnu/dri/intel-vaapi-driver
+    version: *runtime-version
+    versions: *runtime-version
+    autodelete: false
+    no-autodownload: true
+    add-ld-path: lib
+    download-if: have-intel-gpu
+    autoprune-unless: have-intel-gpu
+
+  org.freedesktop.Platform.VAAPI.nvidia.i386:
+    directory: i386/nvidia-vaapi-driver
+    version: *runtime-version
+    versions: *runtime-version
+    autodelete: false
+    no-autodownload: true
+    add-ld-path: lib
+    download-if: have-kernel-module-nvidia
+    autoprune-unless: have-kernel-module-nvidia
+
   org.freedesktop.Platform.codecs_extra.i386:
     directory: lib/i386-linux-gnu/codecs-extra
     version: *runtime-version-extra
@@ -316,6 +336,8 @@ modules:
       - mkdir -p /app/lib/i386-linux-gnu
       - mkdir -p /app/lib/debug/lib/i386-linux-gnu
       - mkdir -p /app/lib/i386-linux-gnu/GL
+      - mkdir -p /app/lib/i386-linux-gnu/dri/intel-vaapi-driver
+      - mkdir -p /app/i386/nvidia-vaapi-driver
       - mkdir -p /app/lib/i386-linux-gnu/codecs-extra
       - install -Dm644 ld.so.conf /app/etc/ld.so.conf
     sources:
