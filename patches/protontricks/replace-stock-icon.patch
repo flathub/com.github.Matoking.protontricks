@@ -1,42 +1,43 @@
-diff --git a/data/com.github.Matoking.protontricks.metainfo.xml b/data/com.github.Matoking.protontricks.metainfo.xml
-index ff53f1d..a9df4de 100644
---- a/data/com.github.Matoking.protontricks.metainfo.xml
-+++ b/data/com.github.Matoking.protontricks.metainfo.xml
-@@ -3,7 +3,6 @@
-   <id>com.github.Matoking.protontricks</id>
+diff --git c/data/com.github.Matoking.protontricks.metainfo.xml i/data/com.github.Matoking.protontricks.metainfo.xml
+index 71a85ad..0f4b440 100644
+--- c/data/com.github.Matoking.protontricks.metainfo.xml
++++ i/data/com.github.Matoking.protontricks.metainfo.xml
+@@ -4,7 +4,6 @@
    <name>Protontricks</name>
    <summary>Apps and fixes for Proton games</summary>
+   <summary xml:lang="ru">Программы и исправления для игр на Proton</summary>
 -  <icon type="stock">wine</icon>
    <provides>
      <binary>protontricks</binary>
      <binary>protontricks-launch</binary>
-diff --git a/src/protontricks/data/share/applications/protontricks-launch.desktop b/src/protontricks/data/share/applications/protontricks-launch.desktop
-index 56112d7..66cac55 100644
---- a/src/protontricks/data/share/applications/protontricks-launch.desktop
-+++ b/src/protontricks/data/share/applications/protontricks-launch.desktop
-@@ -5,5 +5,5 @@ Type=Application
+diff --git c/src/protontricks/data/share/applications/protontricks-launch.desktop i/src/protontricks/data/share/applications/protontricks-launch.desktop
+index d5b5b1d..100c0ed 100644
+--- c/src/protontricks/data/share/applications/protontricks-launch.desktop
++++ i/src/protontricks/data/share/applications/protontricks-launch.desktop
+@@ -8,5 +8,5 @@ Type=Application
  Terminal=false
  NoDisplay=true
  Categories=Utility
 -Icon=wine
 +Icon=com.github.Matoking.protontricks
- MimeType=application/x-ms-dos-executable;application/x-msi;application/x-ms-shortcut;
-diff --git a/src/protontricks/data/share/applications/protontricks.desktop b/src/protontricks/data/share/applications/protontricks.desktop
-index ec0e964..bfd53c7 100644
---- a/src/protontricks/data/share/applications/protontricks.desktop
-+++ b/src/protontricks/data/share/applications/protontricks.desktop
-@@ -5,5 +5,5 @@ Comment=A simple wrapper that does winetricks things for Proton enabled games
+ MimeType=application/x-ms-dos-executable;application/x-msi;application/x-ms-shortcut;application/x-bat;application/x-mswinurl
+diff --git c/src/protontricks/data/share/applications/protontricks.desktop i/src/protontricks/data/share/applications/protontricks.desktop
+index f3902e4..4682482 100644
+--- c/src/protontricks/data/share/applications/protontricks.desktop
++++ i/src/protontricks/data/share/applications/protontricks.desktop
+@@ -8,6 +8,6 @@ Comment[ru]=Простая обёртка, позволяющая применя
  Type=Application
  Terminal=false
  Categories=Utility;
 -Icon=wine
 +Icon=com.github.Matoking.protontricks
  Keywords=Steam;Proton;Wine;Winetricks;
-diff --git a/src/protontricks/gui.py b/src/protontricks/gui.py
-index edec447..1d78ee1 100644
---- a/src/protontricks/gui.py
-+++ b/src/protontricks/gui.py
-@@ -140,7 +140,7 @@ def select_steam_app_with_gui(steam_apps, steam_path, title=None):
+ Keywords[ru]=Steam;Proton;Wine;Winetricks;Стим;Протон;Вайн;Винтрикс;
+diff --git c/src/protontricks/gui.py i/src/protontricks/gui.py
+index b6db2d5..b05a497 100644
+--- c/src/protontricks/gui.py
++++ i/src/protontricks/gui.py
+@@ -306,7 +306,7 @@ def select_steam_app_with_gui(steam_apps, steam_path, title=None):
      def _get_yad_args():
          return [
              "yad", "--list", "--no-headers", "--center",
@@ -45,7 +46,7 @@ index edec447..1d78ee1 100644
              # Disabling markup means we won't have to escape special characters
              "--no-markup",
              "--search-column", "2",
-@@ -344,7 +344,7 @@ def prompt_filesystem_access(paths, show_dialog=False):
+@@ -473,7 +473,7 @@ def prompt_filesystem_access(paths, show_dialog=False):
          ignore = show_text_dialog(
              title="Protontricks",
              text=message,
