@@ -1,8 +1,8 @@
 id: com.github.Matoking.protontricks
 runtime: org.freedesktop.Platform
-runtime-version: &runtime-version '25.08'
+runtime-version: &runtime-version '26.08'
 x-gl-version: &gl-version '1.4'
-x-gl-versions: &gl-versions 25.08;25.08-extra;1.4
+x-gl-versions: &gl-versions 26.08;26.08-extra;1.4
 sdk: org.freedesktop.Sdk
 separate-locales: false
 command: protontricks
@@ -247,6 +247,8 @@ modules:
                 x-checker-data:
                   type: git
                   tag-pattern: ^([\d.]+)$
+              - type: patch
+                path: patches/7zip/7zip-fix.patch
 
           - name: cabextract
             build-options:
@@ -297,6 +299,8 @@ modules:
                   type: anitya
                   project-id: 109
                   url-template: https://github.com/aria2/aria2/releases/download/release-$version/aria2-$version.tar.xz
+              - type: patch
+                path: patches/aria2/fix-nettle4-build.patch
 
   - name: bundle-setup
     buildsystem: simple

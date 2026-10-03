@@ -1,0 +1,33 @@
+From be1caa2db4912df28d4d9236beb64e7a17b8cdfe Mon Sep 17 00:00:00 2001
+From: Antonio Rojas <arojas@archlinux.org>
+Date: Tue, 19 May 2026 16:20:16 +0800
+Subject: [PATCH] Fix build against nettle 4.0
+
+---
+ src/LibnettleMessageDigestImpl.cc | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/src/LibnettleMessageDigestImpl.cc b/src/LibnettleMessageDigestImpl.cc
+index c6c2d7cec6..d85c42ed37 100644
+--- a/src/LibnettleMessageDigestImpl.cc
++++ b/src/LibnettleMessageDigestImpl.cc
+@@ -36,6 +36,7 @@
+ #include "MessageDigestImpl.h"
+ 
+ #include <nettle/nettle-meta.h>
++#include <nettle/version.h>
+ 
+ #include "Adler32MessageDigestImpl.h"
+ 
+@@ -69,7 +70,11 @@ class MessageDigestBase : public MessageDigestImpl {
+   }
+   virtual void digest(unsigned char* md) CXX11_OVERRIDE
+   {
++#if NETTLE_VERSION_MAJOR > 3
++    hash->digest(ctx_.get(), md);
++#else
+     hash->digest(ctx_.get(), getDigestLength(), md);
++#endif
+   }
+ 
+ private:
