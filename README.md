@@ -70,3 +70,9 @@ executable in a file manager.
 Due to the Flatpak security model, you might need to add filesystem permissions
 as described in [Configuration](#Configuration). This is necessary when the Windows executable
 requires access to other files.
+
+## Regenerating Sources
+
+```shell
+make regenerate-sources
+```
