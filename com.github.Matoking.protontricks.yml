@@ -216,7 +216,7 @@ modules:
               - cargo --frozen fetch --manifest-path Cargo.toml --verbose
               - cargo --frozen build --release --verbose
               - install -Dm755 target/release/alacritty ${FLATPAK_DEST}/bin/alacritty
-              - ln -s alacritty ${FLATPAK_DEST}/bin/xterm # Symlink to xterm instead of changing this through protontricks source as xterm is the last fallback used due to it being installed on a lot of systems.
+              - install -Dm755 xterm ${FLATPAK_DEST}/bin/xterm # Wrapper around alacritty providing xterm-compatible -e handling for winetricks
               - tic -x -o ${FLATPAK_DEST}/share/terminfo extra/alacritty.info
             sources:
               - type: git
@@ -224,6 +224,8 @@ modules:
                 tag: v0.17.0
                 commit: 94e7c8874e526b1e67b349d9ba30ddf81669119e
               - cargo-sources.json
+              - type: file
+                path: xterm
 
           - name: 7zip
             buildsystem: simple
