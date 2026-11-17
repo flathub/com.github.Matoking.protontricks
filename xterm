@@ -1,0 +1,14 @@
+#!/bin/sh
+# xterm wrapper backed by alacritty.
+#
+# alacritty's -e takes the command and its arguments as separate arguments and
+# does not interpret shell syntax, unlike xterm which runs -e through a shell.
+# winetricks passes a single shell-quoted string to -e (winetricks_shell), so
+# re-parse it here into separate arguments before invoking alacritty.
+if [ "$1" = "-e" ]; then
+    shift
+    # shellcheck disable=SC2086
+    eval "exec alacritty -e $*"
+else
+    exec alacritty "$@"
+fi
